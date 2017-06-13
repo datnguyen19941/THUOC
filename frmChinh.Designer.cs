@@ -400,8 +400,7 @@
         private System.Windows.Forms.ToolStripMenuItem nhàCungCấpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loạiThuốcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thuốcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem xuấtXứToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đơnVịTínhToolStripMenuItem;
+      
         private System.Windows.Forms.ToolStripMenuItem kháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lậpHĐNhậpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cTHĐNhậpToolStripMenuItem;
