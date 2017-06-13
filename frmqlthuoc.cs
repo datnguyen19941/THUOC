@@ -19,7 +19,7 @@ namespace Thuoc
         KetNoi kn = new KetNoi();
         public void LoadDuLieu()
         {
-            string sql = "select * from QLThuoc";
+            string sql = "select * from Thuoc";
             dgvThuoc.DataSource = kn.taobang(sql);
         }
         private void textBox8_TextChanged(object sender, EventArgs e)
