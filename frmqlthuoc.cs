@@ -27,7 +27,24 @@ namespace Thuoc
 
         }
 
-  
+        private void frmqlthuoc_Load(object sender, EventArgs e)
+        {
+            kn.myconnect();
+            LoadDuLieu();
+            string sql1 = " select * from XuatXu";
+            cbbMaXuatXu.DataSource = kn.taobang(sql1);
+            cbbMaXuatXu.DisplayMember = "MSXuatXu";
+
+            string sql2 = " select * from LoaiThuoc";
+            cbbMSLoai.DataSource = kn.taobang(sql2);
+            cbbMSLoai.DisplayMember = "MSLoaiThuoc";
+
+            string sql3 = " select * from DonViTinh";
+            cbbMSDonVi.DataSource = kn.taobang(sql3);
+            cbbMSDonVi.DisplayMember = "MSDonViTinh";
+
+        }
+
 
         private void txtTim_Click(object sender, EventArgs e)
         {
