@@ -16,7 +16,7 @@ namespace Thuoc
         {
             InitializeComponent();
         }
-
+	//Sua kết nối CSDL
         ClassQuanLyThuoc kn = new ClassQuanLyThuoc();
 
         public void LoadDuLieu()
