@@ -16,7 +16,6 @@ namespace Thuoc
         {
             InitializeComponent();
         }
-
         ClassQuanLyThuoc kn = new ClassQuanLyThuoc();
 
         public void LoadDuLieu()
