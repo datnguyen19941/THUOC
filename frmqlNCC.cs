@@ -21,7 +21,7 @@ namespace Thuoc
 
         public void LoadDuLieu()
         {
-            string sql = "select * from NhaCC";
+            string sql = "select * from NhaCungCap";
             dgvNCC.DataSource = kn.taobang(sql);
         }
 
@@ -39,8 +39,8 @@ namespace Thuoc
             bang = (DataTable)dgvNCC.DataSource;
             chiso = dgvNCC.SelectedCells[0].RowIndex;
             DataRow hang = bang.Rows[chiso];
-            txt.Text = hang["MSLoai"].ToString();
-            txt.Text = hang["TenLoai"].ToString();
+            txtMa.Text = hang["MSNhaCungCap"].ToString();
+            txtTen.Text = hang["TenNhaCungCap"].ToString();
             txtDiaChi.Text = hang["DiaChi"].ToString();
            
             txtDT.Text = hang["SDT"].ToString();
@@ -48,7 +48,7 @@ namespace Thuoc
 
         private void btThem_Click(object sender, EventArgs e)
         {
-            string s = "select * from NhaCungCap where MSNhaCungCap='" + txtMaLoai + "'";
+            string s = "select * from NhaCungCap where MSNhaCungCap='" + txtMa + "'";
             DataTable dt = new DataTable();
             dt = kn.taobang(s);
             if (dt.Rows.Count == 0)
