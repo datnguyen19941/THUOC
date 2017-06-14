@@ -17,11 +17,11 @@ namespace Thuoc
             InitializeComponent();
         }
 
-        ClassQuanLyThuoc kn = new ClassQuanLyThuoc();
+    
 
         public void LoadDuLieu()
         {
-            string sql = "select * from NhaCungCap";
+             sql = "select * from NhaCungCap";
             dgvNCC.DataSource = kn.taobang(sql);
         }
 
@@ -35,9 +35,7 @@ namespace Thuoc
         private void dgvNCC_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int chiso = -1;
-            DataTable bang = new DataTable();
-            bang = (DataTable)dgvNCC.DataSource;
-            chiso = dgvNCC.SelectedCells[0].RowIndex;
+         
             DataRow hang = bang.Rows[chiso];
             txtMa.Text = hang["MSNhaCungCap"].ToString();
             txtTen.Text = hang["TenNhaCungCap"].ToString();
