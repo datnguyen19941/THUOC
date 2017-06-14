@@ -17,14 +17,7 @@ namespace Thuoc
             InitializeComponent();
         }
 
-        private void frmHDNhap_Load(object sender, EventArgs e)
-        {
-            kn.myconnect();
-            string sql = " select * from NhaCungCap";
-            cbbMaNCC.DataSource = kn.taobang(sql);
-            cbbMaNCC.DisplayMember = "MSNhaCungCap";
-
-        }
+        
 
         private void cbbMaNCC_SelectedIndexChanged(object sender, EventArgs e)
         {
