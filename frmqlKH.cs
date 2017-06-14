@@ -10,50 +10,50 @@ using System.Windows.Forms;
 
 namespace Thuoc
 {
-    public partial class frmqlNCC : Form
+    public partial class frmqlKH : Form
     {
-        public frmqlNCC()
+        public frmqlKH()
         {
             InitializeComponent();
         }
-
         ClassQuanLyThuoc kn = new ClassQuanLyThuoc();
 
         public void LoadDuLieu()
         {
             string sql = "select * from NhaCungCap";
-            dgvNCC.DataSource = kn.taobang(sql);
+            dgvKH.DataSource = kn.taobang(sql);
         }
 
-        private void frmqlNCC_Load(object sender, EventArgs e)
+        private void frmqlKH_Load(object sender, EventArgs e)
         {
-            kn.myconnect();
-            LoadDuLieu();
+
+            kn.myconnection();
+            LoadDuLieuKhachHang();
 
         }
 
-        private void dgvNCC_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvKH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int chiso = -1;
+            int chiso = 0;
             DataTable bang = new DataTable();
-            bang = (DataTable)dgvNCC.DataSource;
-            chiso = dgvNCC.SelectedCells[0].RowIndex;
+            bang = (DataTable)dgvKH.DataSource;
+            chiso = dgvKH.SelectedCells[0].RowIndex;
             DataRow hang = bang.Rows[chiso];
-            txtMa.Text = hang["MSNhaCungCap"].ToString();
-            txtTen.Text = hang["TenNhaCungCap"].ToString();
+            txtMa.Text = hang["MSKH"].ToString();
+            txtTen.Text = hang["TenKH"].ToString();
             txtDiaChi.Text = hang["DiaChi"].ToString();
-           
+
             txtDT.Text = hang["SDT"].ToString();
         }
 
         private void btThem_Click(object sender, EventArgs e)
         {
-            string s = "select * from NhaCungCap where MSNhaCungCap='" + txtMa + "'";
+            string s = "select * from KhachHang where MSKH='" + txtMa + "'";
             DataTable dt = new DataTable();
             dt = kn.taobang(s);
             if (dt.Rows.Count == 0)
             {
-                kn.themNCC(txtMa.Text, txtTen.Text, txtDiaChi.Text, txtDT.Text);
+                kn.themKH(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
                 txtMa.ResetText();
                 txtTen.ResetText();
                 txtDiaChi.ResetText();
@@ -63,7 +63,7 @@ namespace Thuoc
             }
             else
             {
-                MessageBox.Show("Mã Thuốc Đã Có, vui lòng nhập lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mã Khách Hàng Đã Có, vui lòng nhập lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             LoadDuLieu();
@@ -71,12 +71,12 @@ namespace Thuoc
 
         private void btXoa_Click(object sender, EventArgs e)
         {
-            string s = "select * from NhaCungCap where MSNhaCungCap='" + txtMa + "'";
+            string s = "select * from KhachHang where MSKH='" + txtMa + "'";
             DataTable dt = new DataTable();
             dt = kn.taobang(s);
             if (dt.Rows.Count == 0)
             {
-                kn.xoaNCC(txtMa.Text, txtTen.Text, txtDiaChi.Text, txtDT.Text);
+                kn.xoaKH(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
                 txtMa.ResetText();
                 txtTen.ResetText();
                 txtDiaChi.ResetText();
@@ -86,20 +86,21 @@ namespace Thuoc
             }
             else
             {
-                MessageBox.Show("Chưa Chọn Nhà Cung Cấp Muốn Xóa, vui lòng chọn lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Chưa chọn Khách Hàng để Xóa, vui lòng chọn lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             LoadDuLieu();
+
         }
 
         private void btSua_Click(object sender, EventArgs e)
         {
-            string s = "select * from NhaCungCap where MSNhaCungCap='" + txtMa + "'";
+            string s = "select * from KhachHang where MSKH='" + txtMa + "'";
             DataTable dt = new DataTable();
             dt = kn.taobang(s);
             if (dt.Rows.Count == 0)
             {
-                kn.suaNCC(txtMa.Text, txtTen.Text, txtDiaChi.Text, txtDT.Text);
+                kn.suaKH(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
                 txtMa.ResetText();
                 txtTen.ResetText();
                 txtDiaChi.ResetText();
@@ -109,7 +110,7 @@ namespace Thuoc
             }
             else
             {
-                MessageBox.Show("Chưa Chọn Thuốc Để Sửa, vui lòng chọn lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Chưa Chọn Khách Hàng để sửa, vui lòng chọn lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             LoadDuLieu();
@@ -127,9 +128,8 @@ namespace Thuoc
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
-            this.Hide();
-            frmChinh f = new frmChinh();
+              this.Hide();
+              frmChinh f = new frmChinh();
             f.Show();
         }
 
@@ -140,7 +140,6 @@ namespace Thuoc
             if (thongbao == DialogResult.Yes)
                 Application.Exit();
         }
-
 
 
 
