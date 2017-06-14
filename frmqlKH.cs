@@ -20,21 +20,21 @@ namespace Thuoc
 
         public void LoadDuLieu()
         {
-            string sql = "select * from KhachHang";
+            string sql = "select * from NhaCungCap";
             dgvKH.DataSource = kn.taobang(sql);
         }
 
         private void frmqlKH_Load(object sender, EventArgs e)
         {
 
-            kn.myconnect();
-            LoadDuLieu();
+            kn.myconnection();
+            LoadDuLieuKhachHang();
 
         }
 
         private void dgvKH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int chiso = -1;
+            int chiso = 0;
             DataTable bang = new DataTable();
             bang = (DataTable)dgvKH.DataSource;
             chiso = dgvKH.SelectedCells[0].RowIndex;
